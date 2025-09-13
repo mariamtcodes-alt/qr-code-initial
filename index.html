@@ -10,19 +10,92 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+html, body { height: 100%; }
+body {
+margin: 0;
+font-family: "Outfit", system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+background: var(--light-gray);
+color: var(--dark-blue);
+display: grid;
+place-items: center; /* centers the card perfectly */
+padding: 1.25rem; /* safe spacing on small screens */
+}
+
+
+img { display: block; max-width: 100%; height: auto; }
+
+
+/* ===== Card ===== */
+.card {
+width: min(100%, var(--card-width));
+background: var(--white);
+border-radius: var(--radius-lg);
+padding: 1rem 1rem 1.5rem;
+box-shadow: 0 20px 40px hsl(220 15% 55% / 0.25);
+text-align: center;
+}
+
+
+.card__img {
+border-radius: var(--radius-md);
+overflow: hidden;
+margin-bottom: 1.25rem;
+}
+
+
+.card__img img {
+width: 100%;
+aspect-ratio: 1 / 1; /* ensures perfect square like the design */
+object-fit: cover; /* keeps QR nicely contained */
+}
+
+
+.card__title {
+font-size: clamp(1.25rem, 1.15rem + 0.4vw, 1.35rem);
+line-height: 1.25;
+font-weight: 700;
+margin: 0 0 0.75rem 0;
+}
+
+
+.card__text {
+font-size: 0.95rem;
+line-height: 1.5;
+color: var(--grayish-blue);
+margin: 0;
+padding: 0 0.5rem;
+}
+
+
+/* Optional: subtle focus style for accessibility */
+.card:focus-within { outline: 3px solid hsl(220 90% 60% / 0.35); outline-offset: 4px; }
+
+
+/* Small desktop polish */
+@media (min-width: 768px) {
+body { padding: 2rem; }
+.card { padding: 1.25rem 1.25rem 1.75rem; }
+.card__text { padding: 0 0.75rem; }
+}
+
+
+/* Optional: dark-mode preview (not required by challenge) */
+@media (prefers-color-scheme: dark) {
+body { background: hsl(220 15% 15%); }
+.card { box-shadow: 0 16px 32px hsl(220 15% 5% / 0.5); }
+}
+</style>
 </head>
 <body>
-
-  Improve your front-end skills by building projects
-
-  Scan the QR code to visit Frontend Mentor and take your coding skills to the next level
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+<main class="card" role="main">
+<div class="card__img">
+<!-- Put your image file in ./images/ and update the src below to match the filename exactly -->
+<img src="./images/image-qr-code.png" alt="Scan the QR code to visit Frontend Mentor and improve your frontend skills" />
+</div>
+  <h1 class="card__title">Improve your front-end skills by building projects</h1>
+<p class="card__text">
+Scan the QR code to visit Frontend Mentor and take your coding skills to the next level
+</p>
+</main>
 </body>
 </html>
